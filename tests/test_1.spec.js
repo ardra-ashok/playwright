@@ -34,9 +34,9 @@ test('Page playwright Test', async ({ page }) => {
   await expect(page).toHaveTitle('Google')
 })
 
-test.only('Test Login - Excercise', async ({ browser }) => {
- const context = await browser.newContext()
- const page = await context.newPage()
+test.only('Test Login - Excercise', async ({ page }) => {
+ // const context = await browser.newContext()
+ // const page = await context.newPage()
 
  const firstName = page.locator('#firstName')
  const lastName = page.locator('#lastName')
@@ -51,6 +51,7 @@ test.only('Test Login - Excercise', async ({ browser }) => {
  const pw = 'testPw!123'
  const cardTitle = page.locator('.card-body h5 b')
 
+// Register
  await page.goto('https://rahulshettyacademy.com/client')
  await registerPageBtn.click()
  await firstName.fill('testFName')
@@ -61,13 +62,18 @@ test.only('Test Login - Excercise', async ({ browser }) => {
  await confirmPassword.fill(pw)
  await ageConfirm.check()
  await loginBtn.click();
- await page.goto('https://rahulshettyacademy.com/client')
 
+ // login
+ await page.goto('https://rahulshettyacademy.com/client')
  await email.fill(emailValue)
  await password.fill(pw)
  await loginBtn.click()
 
+ await cardTitle.first().waitFor();
  console.log(await cardTitle.first().textContent())
+
+ // await page.waitForLoadState('networkidle') // discouraged
+ 
  console.log(await cardTitle.allTextContents())
  
 
