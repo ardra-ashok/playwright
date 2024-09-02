@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
 
-test.only('Test Login - Excercise', async ({ page }) => {
+test('Test Login - Excercise', async ({ page }) => {
  await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
  const userName = page.locator('#username')
  const signIn = page.locator('#signInBtn')
