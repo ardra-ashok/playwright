@@ -11,7 +11,9 @@ module.exports = defineConfig({
 
   use: {
     browserName: 'chromium',
-    headless: false
+    headless: false,
+    screenshot: 'on',
+    trace: 'on'
     // trace: 'on-first-retry',
   },
   timeout: 30 * 1000,

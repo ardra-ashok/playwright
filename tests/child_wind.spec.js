@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test.only('Test Login', async ({ browser }) => {
+test('Test Login', async ({ browser }) => {
   const context = await browser.newContext()
   const page = await context.newPage()
   const username = page.locator('#username')
@@ -12,15 +12,12 @@ test.only('Test Login', async ({ browser }) => {
     documentLink.click(),
   ])
   const text = await newPage.locator('.red').textContent()
- const userName = text.split('@')[1].split(" ")[0];
+  const userName = text.split('@')[1].split(' ')[0]
 
- 
- 
-  await page.locator("#username").fill(userName)
-  const test = await page.locator("#username").textContent();
- 
- console.log(test);
- 
- await page.pause()
-  
+  await page.locator('#username').fill(userName)
+  const test = await page.locator('#username').textContent()
+
+  console.log(test)
+
+  await page.pause()
 })
