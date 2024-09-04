@@ -79,6 +79,20 @@ test.only('Test Application', async ({ page }) => {
  })
 
  await expect(page.locator('.col-text')).toHaveText(orderId)
+
+ // Alternate method using for loop for orderId verification
+ // const rows = await page.locator('tbody tr')
+
+ // for (let i = 0; i < (await rows.count()); ++i) {
+ //   const rowOrderId = await rows.nth(i).locator('th').textContent()
+ //   if (orderId.includes(rowOrderId)) {
+ //     await rows.nth(i).locator('button').first().click()
+ //     break
+ //   }
+ // }
+ // const orderIdDetails = await page.locator('.col-text').textContent()
+ // expect(orderId.includes(orderIdDetails)).toBeTruthy()
+ 
  
   // await page.pause()
 })
