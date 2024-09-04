@@ -2,10 +2,11 @@ const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
 test.only('Test Application', async ({ page }) => {
+  const email = 'anshika@gmail.com'
   const productName = 'IPHONE 13 PRO'
   const products = page.locator('.card-body')
   await page.goto('https://rahulshettyacademy.com/client')
-  await page.locator('#userEmail').fill('anshika@gmail.com')
+  await page.locator('#userEmail').fill(email)
   await page.locator('#userPassword').type('Iamking@000')
   await page.locator('[value="Login"]').click()
   await page.waitForLoadState('networkidle')
@@ -59,7 +60,25 @@ test.only('Test Application', async ({ page }) => {
   buttonTexts.forEach(async (text, index) => {
     if (text.trim() === 'India') await buttons.nth(index).click()
   })
-  await page.locator('a:has-text("PLACE ORDER")').click()
 
-  await page.pause()
+  await expect(page.locator('.user__name [type="text"]').first()).toHaveText(email)
+  await page.locator('a:has-text("PLACE ORDER")').click()
+  await expect(page.locator('.hero-primary')).toHaveText(' Thankyou for the order. ')
+ let orderId = await page.locator('.em-spacer-1 .ng-star-inserted').textContent();
+ orderId = orderId.replaceAll('|',"").trim()
+  
+ await page.locator('button[routerlink="/dashboard/myorders"]').click()
+  
+ await page.locator('tr.ng-star-inserted th').first().waitFor()
+ const orderIds = await page.locator('tr.ng-star-inserted th').allTextContents()
+ const viewButton = page.locator('td button').first()
+ orderIds.forEach(async (text,index) => {
+  if (text.trim() === orderId) {
+   await viewButton.nth(index).click()
+  }
+ })
+
+ await expect(page.locator('.col-text')).toHaveText(orderId)
+ 
+  // await page.pause()
 })
