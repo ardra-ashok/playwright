@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test.only('Test Application', async ({ page }) => {
+test('Test Application', async ({ page }) => {
   const email = 'anshika@gmail.com'
   const productName = 'IPHONE 13 PRO'
   const products = page.locator('.card-body')
