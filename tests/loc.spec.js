@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test.only('Locators', async ({ page }) => {
+test('Locators', async ({ page }) => {
  await page.goto('https://rahulshettyacademy.com/angularpractice/')
  await page.getByLabel('Check me out if you Love IceCreams!').click()
  await page.getByLabel('Employed').check()
