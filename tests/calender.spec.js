@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 const { SourceTextModule } = require('vm')
 
-test.only('Csalender Validation', async ({ page }) => {
+test.only('Calender Validation', async ({ page }) => {
   const monthNumber = 7
   const date = '25'
   const year = '1984'
@@ -34,8 +34,6 @@ test.only('Csalender Validation', async ({ page }) => {
 
   for (let index = 0; index < inputCount; index++) {
     const value = await inputs.nth(index).getAttribute('value')
-    console.log(value);
-    
     await expect(value).toBe(String(expectedList[index]))
   }
 })
