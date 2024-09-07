@@ -61,38 +61,45 @@ test('Test Application', async ({ page }) => {
     if (text.trim() === 'India') await buttons.nth(index).click()
   })
 
-  await expect(page.locator('.user__name [type="text"]').first()).toHaveText(email)
+  await expect(page.locator('.user__name [type="text"]').first()).toHaveText(
+    email
+  )
   await page.locator('a:has-text("PLACE ORDER")').click()
-  await expect(page.locator('.hero-primary')).toHaveText(' Thankyou for the order. ')
- let orderId = await page.locator('.em-spacer-1 .ng-star-inserted').textContent();
- orderId = orderId.replaceAll('|',"").trim()
-  
- await page.locator('button[routerlink="/dashboard/myorders"]').click()
-  
- await page.locator('tr.ng-star-inserted th').first().waitFor()
- const orderIds = await page.locator('tr.ng-star-inserted th').allTextContents()
- const viewButton = page.locator('td button').first()
- orderIds.forEach(async (text,index) => {
-  if (text.trim() === orderId) {
-   await viewButton.nth(index).click()
-  }
- })
+  await expect(page.locator('.hero-primary')).toHaveText(
+    ' Thankyou for the order. '
+  )
+  let orderId = await page
+    .locator('.em-spacer-1 .ng-star-inserted')
+    .textContent()
+  orderId = orderId.replaceAll('|', '').trim()
 
- await expect(page.locator('.col-text')).toHaveText(orderId)
+  await page.locator('button[routerlink="/dashboard/myorders"]').click()
 
- // Alternate method using for loop for orderId verification
- // const rows = await page.locator('tbody tr')
+  await page.locator('tr.ng-star-inserted th').first().waitFor()
+  const orderIds = await page
+    .locator('tr.ng-star-inserted th')
+    .allTextContents()
+  const viewButton = page.locator('td button').first()
+  orderIds.forEach(async (text, index) => {
+    if (text.trim() === orderId) {
+      await viewButton.nth(index).click()
+    }
+  })
 
- // for (let i = 0; i < (await rows.count()); ++i) {
- //   const rowOrderId = await rows.nth(i).locator('th').textContent()
- //   if (orderId.includes(rowOrderId)) {
- //     await rows.nth(i).locator('button').first().click()
- //     break
- //   }
- // }
- // const orderIdDetails = await page.locator('.col-text').textContent()
- // expect(orderId.includes(orderIdDetails)).toBeTruthy()
- 
- 
+  await expect(page.locator('.col-text')).toHaveText(orderId)
+
+  // Alternate method using for loop for orderId verification
+  // const rows = await page.locator('tbody tr')
+
+  // for (let i = 0; i < (await rows.count()); ++i) {
+  //   const rowOrderId = await rows.nth(i).locator('th').textContent()
+  //   if (orderId.includes(rowOrderId)) {
+  //     await rows.nth(i).locator('button').first().click()
+  //     break
+  //   }
+  // }
+  // const orderIdDetails = await page.locator('.col-text').textContent()
+  // expect(orderId.includes(orderIdDetails)).toBeTruthy()
+
   // await page.pause()
 })
