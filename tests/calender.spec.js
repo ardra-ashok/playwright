@@ -31,7 +31,6 @@ test.only('Calender Validation', async ({ page }) => {
   const inputs = await page.locator('input[inputmode*="numeric"]')
   const inputCount = await inputs.count()
 
-
   for (let index = 0; index < inputCount; index++) {
     const value = await inputs.nth(index).getAttribute('value')
     await expect(value).toBe(String(expectedList[index]))

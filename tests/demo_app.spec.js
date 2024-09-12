@@ -2,12 +2,13 @@ const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
 test('Test Application', async ({ page }) => {
-  const email = 'anshika@gmail.com'
+  const username = 'piyaasok@gmail.com'
+  const password = 'Test!12345'
   const productName = 'IPHONE 13 PRO'
   const products = page.locator('.card-body')
   await page.goto('https://rahulshettyacademy.com/client')
-  await page.locator('#userEmail').fill(email)
-  await page.locator('#userPassword').type('Iamking@000')
+  await page.locator('#userEmail').fill(username)
+  await page.locator('#userPassword').type(password)
   await page.locator('[value="Login"]').click()
   await page.waitForLoadState('networkidle')
   const titles = await page.locator('.card-body b').allTextContents()

@@ -17,10 +17,9 @@ class DashboardPage {
 
     const count = await this.products.count()
     for (let i = 0; i < count; i++) {
-      if (
-        const textContent = await this.products.nth(i).locator('b').textContent().trim()
+       const textContent = await this.products.nth(i).locator('b').textContent()
         if(textContent == productName)
-      ) {
+      {
         await this.products.nth(i).locator('text=Add To Cart').click()
         break
       }
