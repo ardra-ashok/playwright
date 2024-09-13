@@ -1,36 +1,34 @@
-const { test, expect } = require("@playwright/test");
-const { log } = require("console");
-const { LoginPage } = require("../pageObjects/LoginPage");
-const { DashboardPage } = require("../pageObjects/DashboardPage");
-const { CartPage } = require("../pageObjects/CartPage");
-const { CheckOutPage } = require("../pageObjects/CheckOutPage");
-const { OrderSummaryPage } = require("../pageObjects/OrderSummaryPage");
-const { OrdersPage } = require("../pageObjects/OrdersPage")
+const { test, expect } = require('@playwright/test')
+const { log } = require('console')
+const { POManager } = require('../pageObjects/POManager')
 
-test("Test Application", async ({ page }) => {
-  const username = "piyaasok@gmail.com";
-  const password = "Test!12345";
-  const productName = "IPHONE 13 PRO";
-  const loginPage = new LoginPage(page);
-  const dashboardPage = new DashboardPage(page);
-  const cartPage = new CartPage(page);
-  const checkoutPage = new CheckOutPage(page);
-  const orderSummaryPage = new OrderSummaryPage(page);
-  const ordersPage = new OrdersPage(page);
+test('Test Application', async ({ page }) => {
+  const username = 'piyaasok@gmail.com'
+  const password = 'Test!12345'
+  const productName = 'IPHONE 13 PRO'
+  const products = await page.locator('.card-body')
+  const poManager = new POManager(page)
 
-  await loginPage.goToLogin();
-  await loginPage.validLogin(username, password);
-  await dashboardPage.searchProduct(productName);
-  await dashboardPage.navigateToCart();
+  const loginPage = await poManager.getLoginPage()
+  await loginPage.goToLogin()
+  await loginPage.validLogin(username, password)
+
+  const dashboardPage = await poManager.getDashboardPage()
+  await dashboardPage.searchProduct(productName)
+  await dashboardPage.navigateToCart()
 
   // Cart - Page
-  await cartPage.verifyProduct(productName);
-  await cartPage.navigateToCheckOut();
+  const cartPage = await poManager.getCartPage()
+  await cartPage.verifyProduct(productName)
+  await cartPage.navigateToCheckOut()
   // CheckoutPage
-  await checkoutPage.enterDetailsAndPlaceOrder("India", username);
+  const checkOutPage = await poManager.getCheckOutPage()
+  await checkOutPage.enterDetailsAndPlaceOrder('India', username)
 
-  const orderId = await orderSummaryPage.confirmOrderAndGetOrderId();
-  await orderSummaryPage.navigateToOrdersPage();
-  await ordersPage.verifyOrder(orderId);
+  const orderSummaryPage = await poManager.getOrderSummaryPage()
+  const orderId = await orderSummaryPage.confirmOrderAndGetOrderId()
+  await orderSummaryPage.navigateToOrdersPage()
 
+  const ordersPage = await poManager.getOrdersPage()
+  await ordersPage.verifyOrder(orderId)
 })
