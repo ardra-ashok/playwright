@@ -7,10 +7,10 @@ class CartPage {
    this.checkOut = page.locator('text=Checkout')
   }
 
-  async verifyProduct(productName) {
+  async verifyProductIsDisplayed(productName) {
     await this.listProduct.first().waitFor()
     expect(
-      await this.page.locator(`h3:has-text("${productName}")`).isVisible()
+      await this.getProductLocator(productName).isVisible()
     ).toBeTruthy()
     
  }
@@ -18,6 +18,11 @@ class CartPage {
  async navigateToCheckOut() {
   await this.checkOut.click()
  }
+
+ getProductLocator(productName){
+  return this.page.locator(`h3:has-text("${productName}")`);
+ }
 }
 
 module.exports = { CartPage }
+

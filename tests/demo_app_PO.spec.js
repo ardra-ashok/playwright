@@ -19,7 +19,7 @@ test('Test Application', async ({ page }) => {
 
   // Cart - Page
   const cartPage = await poManager.getCartPage()
-  await cartPage.verifyProduct(productName)
+  await cartPage.verifyProductIsDisplayed(productName)
   await cartPage.navigateToCheckOut()
   // CheckoutPage
   const checkOutPage = await poManager.getCheckOutPage()
@@ -32,3 +32,4 @@ test('Test Application', async ({ page }) => {
   const ordersPage = await poManager.getOrdersPage()
   await ordersPage.verifyOrder(orderId)
 })
+
