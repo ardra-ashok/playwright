@@ -1,7 +1,7 @@
 const { POManager } = require("../pageObjects/POManager");
 import { test, expect } from "./utils/test-base";
 
-test.only("should display correct title and content", async ({
+test("should display correct title and content", async ({
   page,
   testDataForOrder,
 }) => {

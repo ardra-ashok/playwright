@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test('Test Login', async ({ browser }) => {
+test('@Web Test Login', async ({ browser }) => {
   const context = await browser.newContext()
   const page = await context.newPage()
   const username = page.locator('#username')

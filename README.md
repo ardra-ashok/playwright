@@ -12,3 +12,16 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
 
   <!-- npx playwright test "tests/uiBasics.spec.js" --config=playwright.config_1.js --project=chrome -->
 
+  <!-- change mode to parallel mode in any spec test
+    test.describe.configure({mode:'parallel'})
+
+  serial mode: 
+    if one test fail other tests will not get executed
+
+    to skip some tests 
+    test.skip
+
+    Adding test tags
+    npx playwright test --grep "@Web"
+   -->
+

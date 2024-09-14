@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test('Test Application', async ({ page }) => {
+test('@Web Test Application', async ({ page }) => {
   const username = 'piyaasok@gmail.com'
   const password = 'Test!12345'
   const productName = 'IPHONE 13 PRO'
