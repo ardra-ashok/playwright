@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 const { SourceTextModule } = require('vm')
 
-test.only('Calender Validation', async ({ page }) => {
+test('Calender Validation', async ({ page }) => {
   const monthNumber = 7
   const date = '25'
   const year = '1984'

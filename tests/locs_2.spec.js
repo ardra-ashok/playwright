@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test.only('Frames', async ({ page }) => {
+test('Frames', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/AutomationPractice/')
   // await page.goto('https://www.google.com/')
   // await page.goBack()
@@ -31,7 +31,7 @@ test('Screenshot & Visual comparison', async ({ page }) => {
   await expect(page.locator('#displayed-text')).toBeHidden()
 })
 
-test.only('visual', async ({ page }) => {
+test('visual', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/loginpagePractise/')
  expect(await page.screenshot()).toMatchSnapshot('landing.png')
  

@@ -1,7 +1,9 @@
-const { test, expect } = require("@playwright/test");
-const { log } = require("console");
+const { test } = require("@playwright/test");
 const { POManager } = require("../pageObjects/POManager");
-const productDetails = JSON.parse(JSON.stringify(require("./utils/orderDetails.json")));
+
+const productDetails = JSON.parse(
+  JSON.stringify(require("./utils/orderDetails.json"))
+);
 
 for (const data of productDetails) {
   test(`Test Application - ${data.productName}`, async ({ page }) => {
