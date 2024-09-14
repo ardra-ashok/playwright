@@ -63,8 +63,8 @@ test('@Web Test Application', async ({ page }) => {
   })
 
   await expect(page.locator('.user__name [type="text"]').first()).toHaveText(
-    email
-  )
+    username
+  );
   await page.locator('a:has-text("PLACE ORDER")').click()
   await expect(page.locator('.hero-primary')).toHaveText(
     ' Thankyou for the order. '
