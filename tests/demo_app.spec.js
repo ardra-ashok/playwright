@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test')
 const { log } = require('console')
 
-test('Test Application', async ({ page }) => {
+test('@Web Test Application', async ({ page }) => {
   const username = 'piyaasok@gmail.com'
   const password = 'Test!12345'
   const productName = 'IPHONE 13 PRO'
@@ -63,8 +63,8 @@ test('Test Application', async ({ page }) => {
   })
 
   await expect(page.locator('.user__name [type="text"]').first()).toHaveText(
-    email
-  )
+    username
+  );
   await page.locator('a:has-text("PLACE ORDER")').click()
   await expect(page.locator('.hero-primary')).toHaveText(
     ' Thankyou for the order. '
