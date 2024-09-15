@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 [{"data":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]
+=======
+[{"data":{"failed":4,"broken":1,"skipped":12,"passed":2,"unknown":0,"total":19}}]
+>>>>>>> a787853c75553a5687fcf1f21ffd82c942093770

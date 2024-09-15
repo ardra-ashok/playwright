@@ -28,6 +28,8 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
     npx playwright test --grep "@Web" --reporter=line,allure-playwright
 
   To create allure html template
-  allure generate ./allure-results --clean
+  npx allure generate ./allure-results --clean
+
+  npx allure open ./allure-report
    -->
 
