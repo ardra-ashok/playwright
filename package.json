@@ -2,7 +2,11 @@
   "name": "playwright_learnings",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+ "scripts": {
+  "regression": "npx playwright test",
+  "webTests": "npx playwright test --grep @Web",
+  "safari-config": "npx playwright test tests/uiBasics.spec.js --config=playwright.config_1.js --project=Safari"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
