@@ -16,7 +16,7 @@ for (const data of productDetails) {
     const dashboardPage = await poManager.getDashboardPage();
     await dashboardPage.searchProduct(data.productName);
     await dashboardPage.navigateToCart();
-
+    
     // Cart - Page
     const cartPage = await poManager.getCartPage();
     await cartPage.verifyProductIsDisplayed(data.productName);
