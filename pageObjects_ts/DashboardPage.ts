@@ -11,11 +11,10 @@ export class DashboardPage {
     this.cart = page.locator('[routerlink*="cart"]')
   }
 
-  async searchProduct(productName:string) {
-    await this.page.waitForLoadState('networkidle')
-    await this.page.waitForURL(
-      'https://rahulshettyacademy.com/client/dashboard/dash'
-    )
+  async searchProduct(productName: string) {
+    await this.page.waitForSelector('.card-body', {
+      timeout: 10000,
+    })
 
     const titles = await this.productsText.allTextContents()
     console.log(titles)

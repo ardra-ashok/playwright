@@ -8,14 +8,14 @@
 //   },
 // });
 import { test as base } from "@playwright/test";
-// interface testDataForOrder: {
-//   userName: string;
-//   password: string;
-  
-// }
 
-// Define custom fixtures
-const test = base.extend({
+interface TestDataForOrder {
+  username: string
+  password: string
+  productName: string
+}
+
+const test = base.extend<{testDataForOrder:TestDataForOrder}>({
   testDataForOrder: async ({}, use) => {
     const testDataForOrder = {
       username: "piyaasok@gmail.com",
