@@ -2,10 +2,10 @@
   "name": "playwright_learnings",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "regression": "npx playwright test",
-  "webTests": "npx playwright test --grep @Web",
-  "safari-config": "npx playwright test tests/uiBasics.spec.js --config=playwright.config_1.js --project=Safari"
+  "scripts": {
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep @Web",
+    "safari-config": "npx playwright test tests/uiBasics.spec.js --config=playwright.config_1.js --project=Safari"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +14,8 @@
   "devDependencies": {
     "@playwright/test": "^1.47.1",
     "@types/node": "^22.5.1",
-    "allure-playwright": "^3.0.0-beta.12"
+    "allure-playwright": "^3.0.0-beta.12",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "exceljs": "^4.4.0",
