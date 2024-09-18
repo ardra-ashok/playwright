@@ -1,6 +1,17 @@
+ 
+ <!-- Generate script using playwright -->
+
+  <!-- npx playwright codegen  -->
+<!-- Run test headed 
+  npx playwright test tests/filename -- headed
+   npx playwright test --ui
+-->
+
+
  <!-- run test using custom configuration
  add a seperate custom configuration file; - playwright.config_1.js
   and use while running test like this
+
 
   npx playwright test tests/tstname. --config playwright.config1.js  
     
@@ -46,6 +57,10 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
   Before({tags:"@foo or @bar"},async function () {})
    -->
 
-  
+  <!-- Execute Parallely
+    npx cucumber-js features/errorvalidations.feature --parallel 2 
+   -->
 
-
+   <!-- Generate a HTML report 
+    npx cucumber-js .\features\ecommerce.feature --parallel 2 --format html:cucumber-report.html
+    -->
