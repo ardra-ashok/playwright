@@ -64,3 +64,8 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
    <!-- Generate a HTML report 
     npx cucumber-js .\features\ecommerce.feature --parallel 2 --format html:cucumber-report.html
     -->
+
+  <!-- Retry a cucumber scenario
+      npx cucumber-js .\features\*.feature --retry 1 --format html:cucumber-report.html
+    -->
+<!--  npx cucumber-js --tags '@Regression' --retry 1 --format html:cucumber-report.html -->

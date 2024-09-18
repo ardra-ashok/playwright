@@ -1,4 +1,4 @@
-const { After,Before, Status, BeforeAll,AfterAll } = require('@cucumber/cucumber')
+const { After,Before, Status, BeforeAll,AfterStep } = require('@cucumber/cucumber')
 const playwright = require('@playwright/test')
 const { POManager } = require('../../pageObjects/POManager')
 
@@ -14,7 +14,7 @@ After(async function () {
 
 Before(async function () {
 })
-After(async function ({result}) {
+AfterStep(async function ({result}) {
   if (result.status === Status.FAILED)
     await this.page.screenshot({path:'screenshots/screenshot1.png'})
 })
