@@ -15,7 +15,6 @@ class LoginPage {
    expect(await this.page.isVisible('form input[value="Login"]')).toBeTruthy()
     await this.userName.fill(username) 
     await this.password.fill(password) 
-    console.log('clicking...')
     await this.signInButton.click({ force: true })
     await this.page.waitForLoadState('networkidle')
   }

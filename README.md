@@ -33,10 +33,3 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
   npx allure open ./allure-report
    -->
 
-action flow  - test package
-action - scenario
-
-departure time - update 
-
-history 
-env - crs-uat
