@@ -33,3 +33,19 @@ npx playwright test tests/ --config playwright.config1.js  --project=chromium
   npx allure open ./allure-report
    -->
 
+   <!-- Run a specific cucumber feature file
+    npx cucumber-js
+    npx cucumber-js .\features\errorvalidations.feature
+    npx cucumber-js --tags "@Regression"
+    -->
+
+  <!-- Tagged Hooks -->
+  <!-- 
+  Before({tags:"@foo"},async function () {})
+  Before({tags:"@foo and @bar"},async function () {})
+  Before({tags:"@foo or @bar"},async function () {})
+   -->
+
+  
+
+
