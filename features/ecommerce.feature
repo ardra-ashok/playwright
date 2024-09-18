@@ -1,7 +1,7 @@
 Feature: Ecommerce Validations
     
     Scenario: Placing the order
-        Given I login to Ecommerce application using "piyaasok@gmail.com" and "Test123451!"
+        Given I login to Ecommerce application using "piyaasok@gmail.com" and "Test!12345"
         When I add "IPHONE 13 PRO" to Cart
         Then I verify "IPHONE 13 PRO" is displayed in the Cart
         When I enter valid details and place the order
